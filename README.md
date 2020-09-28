@@ -2,7 +2,7 @@
 
 ## 개요
 Spring Security를 이용하여 프로젝트를 진행한다.  
-도메인은 '사내 계정 관리'로 정해서 개발할 예정이다.
+도메인은 '사내 계정 관리'로 정해서 개발할 예정이다.  
 이번에는 Reference를 보면서 해당하는 기능들을 하나하나 이해하는 과정을 거친다.  
 공부는 Reference로 하되, 기존 Servlet 기반 Application을 구현하고,  
 다음으로 Netty 기반 Webflux에도 적용해본다.  
