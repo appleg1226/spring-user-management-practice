@@ -22,7 +22,7 @@ Spring Security를 이용하여 프로젝트를 진행한다.
 - 관련 테스트 작성
 - Webflux(Netty 기반)에서도 동일 기능 구성
 - Spring Cloud 환경에서의 Security 구성 공부 및 개발
-            
+   
 ## USER 정보 정리
 - 아이디: id
 - 비밀번호: password
@@ -31,4 +31,8 @@ Spring Security를 이용하여 프로젝트를 진행한다.
 - 주소: address
 - 소속 팀: team
 - 입사일: workStartDate
-            
+
+## 계정 관리 추가 기능
+- 조회 기능(DB 쿼리) 
+- 비밀번호 변경 기능
+- 다른 정보 변경 기능
