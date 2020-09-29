@@ -1,6 +1,6 @@
 package com.chong.usermanagement.security;
 
-import com.chong.usermanagement.domain.User;
+import com.chong.usermanagement.domain.Client;
 import lombok.Data;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
@@ -15,7 +15,7 @@ public class RegisterTemplate {
     private String team;
     private LocalDateTime workStartDate;
 
-    public User toUser(PasswordEncoder passwordEncoder){
-        return new User(userId, passwordEncoder.encode(password), email, address, team, workStartDate);
+    public Client toUser(PasswordEncoder passwordEncoder){
+        return new Client(userId, passwordEncoder.encode(password), email, address, team, workStartDate);
     }
 }

@@ -1,18 +1,14 @@
 package com.chong.usermanagement.domain;
 
 import lombok.*;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 
 @Getter
@@ -21,10 +17,10 @@ import java.util.Collection;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class User implements UserDetails {
+public class Client implements UserDetails {
 
     @Id
-    private String userId;
+    private String clientId;
     private String password;
     private String email;
     private String address;
@@ -45,7 +41,7 @@ public class User implements UserDetails {
 
     @Override
     public String getUsername() {
-        return this.userId;
+        return this.clientId;
     }
 
     @Override

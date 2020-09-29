@@ -7,6 +7,7 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
@@ -15,7 +16,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
-    DefaultUserService userService;
+    DefaultClientService userService;
 
     @Bean
     public PasswordEncoder encoder(){
@@ -32,9 +33,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-            .antMatchers("/info/**", "/register").permitAll()
-            .antMatchers("/modify").hasRole("USER");
-
+                .antMatchers("/user/**").hasRole("USER_ROLE")
+                .anyRequest().permitAll();
+        // 토큰 사용을 위하여 세션/csrf/form로그인 해제
+        http.httpBasic().disable();
+        http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         http.csrf().disable();
+        http.formLogin().disable();
     }
 }
