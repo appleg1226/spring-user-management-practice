@@ -1,4 +1,4 @@
-package com.chong.usermanagement.security;
+package com.chong.usermanagement.domain;
 
 import com.chong.usermanagement.domain.Client;
 import lombok.Data;

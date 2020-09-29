@@ -11,6 +11,17 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collection;
 
+
+/**
+ * {
+ *         "clientId": "appleg1226",
+ *         "password": "hihi22",
+ *         "email": "dmschd003@gmail.com",
+ *         "address": "seoul2",
+ *         "team": "aTeam",
+ *         "workStartDate": "2018-12-15T10:00:00"
+ * }
+ */
 @Getter
 @Setter
 @Entity
@@ -30,7 +41,7 @@ public class Client implements UserDetails {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         ArrayList<GrantedAuthority> auth = new ArrayList<>();
-        auth.add(new SimpleGrantedAuthority("USER_ROLE"));
+        auth.add(new SimpleGrantedAuthority("USER_AUTH"));
         return auth;
     }
 
