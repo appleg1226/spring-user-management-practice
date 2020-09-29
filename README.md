@@ -21,11 +21,11 @@ Spring Security를 이용하여 프로젝트를 진행한다.
 ```
 
 ## 할 일
-[x] 기본적인 아이디/비밀번호 인증(Json Web Token)  
-[ ] OAuth 2.0 인증  
-[ ] 관련 테스트 작성  
-[ ] Webflux(Netty 기반)에서도 동일 기능 구성  
-[ ] Spring Cloud 환경에서의 Security 구성 공부 및 개발  
+- [x] 기본적인 아이디/비밀번호 인증(Json Web Token)  
+- [ ] OAuth 2.0 인증  
+- [ ] 관련 테스트 작성  
+- [ ] Webflux(Netty 기반)에서도 동일 기능 구성  
+- [ ] Spring Cloud 환경에서의 Security 구성 공부 및 개발  
    
 ## USER 정보 정리
 - 아이디: id
