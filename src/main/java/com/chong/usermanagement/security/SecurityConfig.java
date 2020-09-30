@@ -13,16 +13,11 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-@Configuration
 @EnableWebSecurity
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
-
-    @Autowired
-    DefaultClientService userService;
-
-    @Autowired
-    JwtTokenProvider jwtTokenProvider;
-
+@Configuration
+public class SecurityConfig extends WebSecurityConfigurerAdapter{
+    @Autowired DefaultClientService userService;
+    @Autowired JwtTokenProvider jwtTokenProvider;
     @Bean
     public PasswordEncoder encoder(){
         return new BCryptPasswordEncoder();
@@ -31,8 +26,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth
-            .userDetailsService(userService)
-            .passwordEncoder(encoder());
+                .userDetailsService(userService)
+                .passwordEncoder(encoder());
     }
 
     @Override
@@ -44,8 +39,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //                .antMatchers("/user/**").hasRole("USER_ROLE")
                 .antMatchers("/user/**").hasAuthority("USER_AUTH")
                 .anyRequest().permitAll();
-        // 토큰 사용을 위하여 세션/csrf/form로그인 해제
-        http.httpBasic().disable();
+
+        http.httpBasic().disable();     // 토큰 사용을 위하여 세션/csrf/form로그인 해제
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         http.csrf().disable();
         http.formLogin().disable();
